@@ -1,0 +1,144 @@
+:root {
+  --color-white: hsl(0, 0%, 100%);
+  --color-light-pink: hsl(275, 100%, 97%);
+  --color-grayish-purple: hsl(292, 16%, 49%);
+  --color-dark-purple: hsl(292, 42%, 14%);
+
+  --fs-text: 1.6rem;
+
+  --fw-regular: 400;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+}
+
+html {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: var(--fs-text);
+  color: var(--color-dark-purple);
+  height: 100vh;
+  background-color: var(--color-light-pink);
+
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: -20rem;
+  width: 100%;
+  height: 35%;
+  background-image: url(./assets/images/background-pattern-desktop.svg);
+  z-index: -1;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: var(--color-white);
+  padding: 4rem;
+  border-radius: 12px;
+  max-width: 75rem;
+
+  margin: 20rem auto;
+}
+
+.heading {
+  font-size: 4rem;
+  font-weight: var(--fw-bold);
+  margin-bottom: 4rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.accordion {
+}
+
+.accordion__item {
+  max-width: 70rem;
+  padding: 2rem 0;
+}
+
+.accordion__item:not(:last-child) {
+  border-bottom: 1px solid var(--color-light-pink);
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.accordion__tab {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion__title {
+  font-weight: var(--fw-semi-bold);
+  transition: all 0.2s;
+}
+
+.accordion__title--active {
+  color: #ad28eb;
+}
+
+.accordion__tab:hover .accordion__title {
+  color: #ad28eb;
+}
+
+.accordion__btn {
+}
+
+.accordion__content {
+  font-weight: var(--fw-regular);
+  color: var(--color-grayish-purple);
+  line-height: 1.65;
+
+  transition: all 0.2s;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 750px) {
+  body::before {
+    background-image: url(./assets/images/background-pattern-mobile.svg);
+  }
+
+  .container {
+    max-width: 60rem;
+    margin: 16rem auto;
+  }
+
+  .accordion__tab {
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    max-width: 45rem;
+    margin: 12rem auto;
+  }
+
+  .heading {
+    margin-bottom: 0;
+  }
+
+  .accordion__item {
+    padding: 1.6rem 0;
+  }
+}
